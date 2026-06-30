@@ -46,6 +46,10 @@ I added a hover effect on the hero image that scales it up slightly, contained i
 
 I added a slide in animation on the main card using keyframes, but I made it different from the fade and slide up animation I used on my 3 column card project. This one slides in from the left using translateX instead of translateY, so the card enters sideways instead of rising from below.
 
+### Making the layout flexible
+
+I changed main from a fixed width to width 90% with a max-width of 500px, so the card can shrink to fit smaller screens instead of staying locked at one fixed size, but it also will not grow past 500px on a larger screen. I also added overflow hidden on the container as a safety net in case anything tries to spill outside it sideways.
+
 ## Mistakes I Made and Fixed
 
 1. I tried to put object-fit on the recipe-top section instead of on the actual img tag, which did nothing since object-fit only works on elements like img or video.

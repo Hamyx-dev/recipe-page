@@ -10,17 +10,29 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  margin: 10px;
+  padding: 5px;
+  overflow: hidden;
 
 }
 main {
     background: whitesmoke;
     border: 1px solid #ccc;
-  width: 500px;
+    width: 90%;
+  max-width: 500px;
   height: 100%;
   border-radius: 16px;
-  
-  
+animation: slideInLeft 0.6s ease-out forwards;      
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 #drink {
   width: 100%;
@@ -55,11 +67,12 @@ main {
     border-radius: 16px;
     background: linear-gradient(135deg, #FF6B81, #FFA45C);
     margin: 10px;
+    transition: transform 0.3s ease;
 }
 
 .recipe-info:hover {
-    transform: translateY(-5px);
     background: #f0c4cc;
+    transform: translateY(-5px);
 }
 
 .recipe-info ul{
@@ -113,7 +126,6 @@ p,li,td,th {
 .ingredients ul li {
     padding: 8px 0;
     border-bottom: 2px solid #f0c4cc;
-    /* transition: transform 0.3s ease; */
 }
 
 .ingredients ul li::before {
@@ -133,18 +145,18 @@ p,li,td,th {
 .instruction ol {
     padding-left: 0;
     list-style: none;
-    counter-reset: step-counter;
+    counter-reset: step-counter;  /* this sets up a counter called step-counter starting at 0, so I can make my own numbers instead of the browser default 1. 2. 3. */
 }
 
 .instruction ol li {
     margin-bottom: 20px;
     position: relative;
     padding-left: 20px;
-    counter-increment: step-counter;
+    counter-increment: step-counter; /* this adds 1 to step-counter every time the browser reaches a new li, so the first step becomes 1, the next one becomes 2, and so on */
 }
 
 .instruction ol li::before {
-    content: counter(step-counter);
+    content: counter(step-counter); /* content is what actually shows up as the badge text, here I am telling it to show whatever number step-counter is currently at */
     position: absolute;
     left: -12px;
     top: 0;
